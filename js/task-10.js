@@ -15,7 +15,14 @@ destroyBtn.addEventListener('click',destroyBoxes);
 
 function createBoxes()
 {
+  let last=0;
 for (let index = 1; index <= Number(input.value); index++) {
+  console.log(last!==Number(input.value)||last!=0)
+  if(last!==Number(input.value))
+  {
+    prevHeight=20;
+    prevWidth=20;
+  }
   const newEl=document.createElement('div');
   newEl.classList.add(`.div${index}`)
   prevWidth+=10
@@ -24,6 +31,7 @@ for (let index = 1; index <= Number(input.value); index++) {
   newEl.style.height=prevHeight+'px'
   newEl.style.backgroundColor=getRandomHexColor();
   list.push(newEl)
+  last=Number(input.value);
 }
 box.append(...list)
 }

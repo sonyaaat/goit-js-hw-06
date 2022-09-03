@@ -1,13 +1,8 @@
 const list=document.querySelectorAll('li.item')
 console.log(`Number of categories: ${list.length}`)
-
-const names=[]
-const count=[]
-list.forEach((el,index)=>
+list.forEach((el)=>
     {
-        names.push(el.querySelector("h2").textContent)
-        count.push(el.querySelectorAll("li").length)
-        console.log(`Category: ${names[index]}`)
-        console.log(`Elements: ${count[index]}`)
+        console.log(`Category: ${el.firstElementChild.textContent}`)
+        console.log(`Elements: ${el.querySelectorAll("li").length}`)
     })
 
